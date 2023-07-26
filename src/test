@@ -1,12 +1,5 @@
-{
-  "clientId": "cec58bf7-72a0-413f-a521-6fd6204eb648",
-  "clientSecret": "-l48Q~emnJ1s5x-iuKp5plzNuknX4wyLonzWvci4",
-  "subscriptionId": "a79a1176-6310-4626-9d37-7bffd71a332f",
-  "tenantId": "24ed8420-411f-484a-93ee-4f06c295837e",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
+Create credentials to login from ex. GitHub (this command will create service principal with contributor acces to the resource group):
+az ad sp create-for-rbac --name GH-Action-eshoponweb --role contributor --scopes /subscriptions/SUBSCRIPTION-ID/resourceGroups/RESOURCE-GROUP --sdk-auth
+
+Now register the resource provider for te azure app service that we will deploy later:
+az provider register --namespace Microsoft.Web
